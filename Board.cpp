@@ -1,6 +1,14 @@
 #include "Board.h"
 #include <iostream>
 using namespace std;
+// sets the console output to different colors 
+#define RED "\033[22;31m" 
+#define RESET "\033[0m" //resets to console output to default color
+#define GREY "\033[22;37m"
+#define LIGHT_RED "\033[01;31m"
+#define LIGHT_GREEN "\033[01;32m"
+#define LIGHT_PURPLE "\033[01;35m"
+#define LIGHT_CYAN "\033[01;36m"
 
 #define MAX_BOARD_SIZE 10
 Board::Board()
@@ -61,6 +69,23 @@ chesspiece Board::getPieceAtPosition(int position)
 bool Board::isValidPosition(int position)
 {
     return (position >= 1 && position <= 9);
+}
+
+void Board::print_board()
+{
+    for (int i = 1; i < MAX_BOARD_SIZE; i++)
+    {   
+        chesspiece pieceAtPositioni = getPieceAtPosition(i);
+        if (pieceAtPositioni.getPieceLabel() == 'X')
+            cout << LIGHT_GREEN << 'X' << RESET << " ";
+        else if (pieceAtPositioni.getPieceLabel() == 'O')
+            cout << RED << 'O' << RESET << " ";
+        else
+            cout << pieceAtPositioni.getPieceLabel() << " ";
+        if (i % 3 == 0)
+            cout << "\n";
+    }
+    cout << endl;
 }
 
 //private helper

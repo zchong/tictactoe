@@ -1,7 +1,8 @@
 /*  Author:Zhia Chong
     File: chesspiece.h
 */
-
+#ifndef CHESSPIECE_H
+#define CHESSPIECE_H
 class chesspiece {
     public:
         chesspiece();
@@ -11,3 +12,5 @@ class chesspiece {
     private:
         char pieceLabel;
 };
+
+#endif
