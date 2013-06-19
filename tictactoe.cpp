@@ -4,6 +4,9 @@
 */
 #include <iostream>  
 #include <string>
+
+/* chess piece class files */
+#include "chesspiece.h"
 using namespace std;
 
 // sets the console output to different colors 
