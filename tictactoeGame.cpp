@@ -1,16 +1,14 @@
 #include <iostream>
 #include <string>
 
-/* Game, Board and chesspiece files */
+/* Game and chesspiece files */
 #include "Game.h"
-#include "Board.h"
 #include "chesspiece.h"
 using namespace std;
 
 // sets the console output to different colors 
 #define RED "\033[22;31m" 
 #define RESET "\033[0m" //resets to console output to default color
-#define GREY "\033[22;37m"
 #define LIGHT_RED "\033[01;31m"
 #define LIGHT_GREEN "\033[01;32m"
 #define LIGHT_PURPLE "\033[01;35m"
@@ -27,7 +25,7 @@ int main()
     cout << "The board is empty now." << endl;
     newGame.print_board();
 
-    cout << GREY << "\n\nAs a guest, you can start first! You will be X." << RESET << endl;
+    cout << RED << "\n\nAs a guest, you can start first! You will be X." << RESET << endl;
     startGame(newGame);
 
     return 0;

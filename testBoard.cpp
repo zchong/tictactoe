@@ -7,7 +7,8 @@ void testInsertIntoBoard();
 void testIsEmptyPosition();
 void testCanRemovePosition();
 void testCheckPositionReturnsValidPiece();
-void testCheckIsValidPositionReturnsTrue();
+void testCheckIsValidPosition();
+void testCheckIsEmptyPositionShouldReturnFalse();
 
 int main()
 {
@@ -28,8 +29,12 @@ int main()
     cout << "Passed getPieceAtPosition test \n\n";
 
     cout << "Testing isValidPosition method:\n";
-    testCheckIsValidPositionReturnsTrue();
+    testCheckIsValidPosition();
     cout << "Passed isValidPosition test\n\n";
+
+    cout << "Testing isEmptyPosition with non empty position\n";
+    testCheckIsEmptyPositionShouldReturnFalse();
+    cout << "Passed isEmptyPosition with non empty position\n\n";
 
     return 0;
 }
@@ -84,11 +89,19 @@ void testCheckPositionReturnsValidPiece()
     assert (pieceShouldBeEmpty.getPieceLabel() == ' ');
 }
 
-void testCheckIsValidPositionReturnsTrue()
+void testCheckIsValidPosition()
 {
     Board board;
     assert (board.isValidPosition(9) == true);
     assert (board.isValidPosition(1) == true);
     assert (board.isValidPosition(0) == false);
     assert (board.isValidPosition(10000) == false);
+}
+
+void testCheckIsEmptyPositionShouldReturnFalse()
+{
+    Board board;
+    chesspiece piece('X');
+    board.insertIntoPosition(1, piece);
+    assert (board.isEmptyPosition(1) == false);
 }
