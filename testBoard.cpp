@@ -103,5 +103,5 @@ void testCheckIsEmptyPositionShouldReturnFalse()
     Board board;
     chesspiece piece('X');
     board.insertIntoPosition(1, piece);
-    assert (board.isEmptyPosition(1) == false);
+    assert (board.isPositionEmpty(1) == false);
 }

@@ -25,7 +25,7 @@ Board::~Board()
     board = NULL;
 }
 
-int Board::boardSize()
+const int Board::boardSize()
 {
     return MAX_BOARD_SIZE;
 }

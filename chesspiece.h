@@ -7,7 +7,7 @@ class chesspiece {
     public:
         chesspiece();
         chesspiece(char piece);
-        char getPieceLabel();
+        const char getPieceLabel();
         void setPieceLabel(char chesspiece);
     private:
         char pieceLabel;

@@ -14,7 +14,7 @@ using namespace std;
 #define LIGHT_PURPLE "\033[01;35m"
 #define LIGHT_CYAN "\033[01;36m"
 
-void printDirections(const Game &game);
+void printDirections(Game &game);
 void startGame(Game &game);
 
 int main()
@@ -31,14 +31,15 @@ int main()
     return 0;
 }
 
-void printDirections(const Game &game)
+void printDirections(Game &game)
 {
+    int gameBoardSize = game.boardSize();
     cout << "\tPress 1 - 9 for placement of your piece." << endl;
     cout << "\tThe board is laid out in the following manner:" << endl;
     cout << "\t\t\t";
     cout << LIGHT_PURPLE;
 
-    for (int i = 1; i < game.boardSize(); i++)
+    for (int i = 1; i < gameBoardSize; i++)
     {   
         cout << i << " ";
         if (i % 3 == 0)

@@ -9,7 +9,7 @@ chesspiece::chesspiece(char piece){
     setPieceLabel(piece);
 }
 
-char chesspiece::getPieceLabel()
+const char chesspiece::getPieceLabel()
 {
     return pieceLabel;
 }

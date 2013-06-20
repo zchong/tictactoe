@@ -9,7 +9,7 @@ class Board {
     bool isPositionEmpty(int position);
     bool removePosition(int position);
     chesspiece getPieceAtPosition(int position);
-    int boardSize();
+    const int boardSize();
     bool isValidPosition(int position);
     void print_board();
     bool isValidInput(chesspiece input);
