@@ -4,14 +4,15 @@
 #include "Board.h"
 #include "chesspiece.h"
 typedef enum {player = 1, computer = -1, allelse = 0} GameDecision;
-class Game {
+
+class Game : public Board {
     public:
         Game();
         int minimax(bool playerTurn, int n);
         bool isGameADraw();
         bool checkForConnectingLines(chesspiece chess);
         GameDecision checkForWinners();
-    private:
-        Board board;
+        int getPositionMin();
+        int getPositionMax();
 };
 #endif

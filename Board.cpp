@@ -22,6 +22,7 @@ Board::Board()
 Board::~Board()
 {
     delete [] board;
+    board = NULL;
 }
 
 int Board::boardSize()
@@ -88,7 +89,6 @@ void Board::print_board()
     cout << endl;
 }
 
-//private helper
 bool Board::isValidInput(chesspiece input)
 {
     char c = input.getPieceLabel();

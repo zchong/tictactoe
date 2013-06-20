@@ -5,6 +5,16 @@ static int positionMax, positionMin;
 
 Game::Game(){}
 
+int Game::getPositionMax()
+{
+    return positionMax;
+}
+
+int Game::getPositionMin()
+{
+    return positionMin;
+}
+
 int Game::minimax(bool playerTurn, int n)
 {
     int gain = 0;
@@ -15,18 +25,18 @@ int Game::minimax(bool playerTurn, int n)
     if (whoWins == player || whoWins == computer || isGameADraw())
         return whoWins;
 
-    for (int i = 1; i < board.boardSize(); i++)
+    for (int i = 1; i < boardSize(); i++)
     {
-        if(board.isPositionEmpty(i))
+        if(isPositionEmpty(i))
         {
             char pieceLabel = playerTurn ? 'X' : 'O'; //place 'X' if it is player turn, else 'O'
             chesspiece piece(pieceLabel);
-            board.insertIntoPosition(i, piece);
+            insertIntoPosition(i, piece);
             
             gain = minimax(!playerTurn, n + 1);
             
             piece.setPieceLabel('_');
-            board.insertIntoPosition(i, piece);
+            insertIntoPosition(i, piece);
 
             if (playerTurn)
             {
@@ -57,32 +67,32 @@ int Game::minimax(bool playerTurn, int n)
 bool Game::isGameADraw()
 {
     GameDecision winResults = checkForWinners();
-    bool boardIsFilled = true;
+    bool sFilled = true;
     
-    for (int i = 1; i < board.boardSize(); i++)
+    for (int i = 1; i < boardSize(); i++)
     {
-        if (board.isPositionEmpty(i))
+        if (isPositionEmpty(i))
         {
-            boardIsFilled = false;
+            sFilled = false;
             break;
         }
     }
-    return (winResults == allelse && boardIsFilled);
+    return (winResults == allelse && sFilled);
 }
 
 bool Game::checkForConnectingLines(chesspiece chess)
 {
     char ch = chess.getPieceLabel();
-    
+
      return (
-        (board.getPieceAtPosition(1).getPieceLabel() == ch && board.getPieceAtPosition(2).getPieceLabel() == ch && board.getPieceAtPosition(3).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(4).getPieceLabel() == ch && board.getPieceAtPosition(5).getPieceLabel() == ch && board.getPieceAtPosition(6).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(7).getPieceLabel() == ch && board.getPieceAtPosition(8).getPieceLabel() == ch && board.getPieceAtPosition(9).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(1).getPieceLabel() == ch && board.getPieceAtPosition(4).getPieceLabel() == ch && board.getPieceAtPosition(7).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(2).getPieceLabel() == ch && board.getPieceAtPosition(5).getPieceLabel() == ch && board.getPieceAtPosition(8).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(3).getPieceLabel() == ch && board.getPieceAtPosition(6).getPieceLabel() == ch && board.getPieceAtPosition(9).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(1).getPieceLabel() == ch && board.getPieceAtPosition(5).getPieceLabel() == ch && board.getPieceAtPosition(9).getPieceLabel() == ch) ||
-        (board.getPieceAtPosition(3).getPieceLabel() == ch && board.getPieceAtPosition(5).getPieceLabel() == ch && board.getPieceAtPosition(7).getPieceLabel() == ch));
+        (getPieceAtPosition(1).getPieceLabel() == ch && getPieceAtPosition(2).getPieceLabel() == ch && getPieceAtPosition(3).getPieceLabel() == ch) ||
+        (getPieceAtPosition(4).getPieceLabel() == ch && getPieceAtPosition(5).getPieceLabel() == ch && getPieceAtPosition(6).getPieceLabel() == ch) ||
+        (getPieceAtPosition(7).getPieceLabel() == ch && getPieceAtPosition(8).getPieceLabel() == ch && getPieceAtPosition(9).getPieceLabel() == ch) ||
+        (getPieceAtPosition(1).getPieceLabel() == ch && getPieceAtPosition(4).getPieceLabel() == ch && getPieceAtPosition(7).getPieceLabel() == ch) ||
+        (getPieceAtPosition(2).getPieceLabel() == ch && getPieceAtPosition(5).getPieceLabel() == ch && getPieceAtPosition(8).getPieceLabel() == ch) ||
+        (getPieceAtPosition(3).getPieceLabel() == ch && getPieceAtPosition(6).getPieceLabel() == ch && getPieceAtPosition(9).getPieceLabel() == ch) ||
+        (getPieceAtPosition(1).getPieceLabel() == ch && getPieceAtPosition(5).getPieceLabel() == ch && getPieceAtPosition(9).getPieceLabel() == ch) ||
+        (getPieceAtPosition(3).getPieceLabel() == ch && getPieceAtPosition(5).getPieceLabel() == ch && getPieceAtPosition(7).getPieceLabel() == ch));
 }
 
 GameDecision Game::checkForWinners()

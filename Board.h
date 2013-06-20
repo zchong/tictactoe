@@ -12,8 +12,8 @@ class Board {
     int boardSize();
     bool isValidPosition(int position);
     void print_board();
-  private:  
-    char *board;
     bool isValidInput(chesspiece input);
+  protected:  
+    char *board;
 };
 #endif
