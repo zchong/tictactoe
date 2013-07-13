@@ -25,4 +25,13 @@ There are three distinct classes in this TicTacToe game:
 
 Finally, there is one important class that runs the game: `tictactoegame`.
 
-[Last updated: Jun 20, 2013] 
+##How to run
+This is written in C++, so to compile it, you need g++. The instructions below are for Mac/Linux:
+
+* log into Terminal
+* `cd` to the folder containing this game
+* type: `make` for easy compilation (I already included all the necessary files to make it easy for you to compile)
+  [Alternatively: you can type `g++ tictactoeGame.cpp Board.cpp Game.cpp chesspiece.cpp -o game` to compile the game]
+* type: `./game` to compile the game and you're done!
+
+[Last updated: July 13, 2013] 
