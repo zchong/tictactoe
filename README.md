@@ -1,6 +1,6 @@
 #TIC TAC TOE
 
-A simple TicTacToe program with nice console output written using C++.
+A simple TicTacToe program with nice console output written entirely in C++. 
 
 ##Introduction
 A Tic Tac Toe program lets the user choose his/her piece on a 3X3 board. Your goal is to align 3 of the same piece in a row/column/diagonal to win the game.
@@ -31,7 +31,10 @@ This is written in C++, so to compile it, you need g++. The instructions below a
 * log into Terminal
 * `cd` to the folder containing this game
 * type: `make` for easy compilation (I already included all the necessary files to make it easy for you to compile)
-  [Alternatively: you can type `g++ tictactoeGame.cpp Board.cpp Game.cpp chesspiece.cpp -o game` to compile the game]
+[Alternatively: you can type `g++ tictactoeGame.cpp Board.cpp Game.cpp chesspiece.cpp -o game` to compile the game]
 * type: `./game` to compile the game and you're done!
+
+
+For Windows users, I think you might need Cygwin to achieve something similar. I haven't done a lot of programming in Windows, so that's a foreign land for me. For anyone intending to run this in Windows, please let me know and I can find out more about that.
 
 [Last updated: July 13, 2013] 
